@@ -8,4 +8,3 @@ def weight_average(my_list=[]):
         multi1 = multi1 + (x[0] * x[1])
         multi2 = multi2 + (x[1])
     return(multi1 / multi2)
-
