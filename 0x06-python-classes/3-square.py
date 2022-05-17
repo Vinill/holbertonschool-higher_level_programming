@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""Empty class"""
 class Square:
-    """Empty class"""
     def __init__(self, size=0):
         self.__size = size
         if not isinstance(size, int):
