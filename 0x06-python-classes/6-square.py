@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+from turtle import position
+
+
 class Square:
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
@@ -36,7 +39,15 @@ class Square:
     def my_print(self):
         if self.size == 0:
             print("")
-        for i in range(self.size):
-            for j in range(self.__size):
-                print("#", end="")
-            print("")
+        else:
+            position = self.position
+            if position[1] > 0:
+                for x in range(position[1]):
+                    print("")
+            for x in range(self.size):
+                print(" " * position[0] + "#" * self.size)
+
+    #  for i in range(self.size):
+    #    for j in range(self.__size):
+    #         print("#", end="")
+    #    print("")
