@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 class Square:
     def __init__(self, size=0, position=(0, 0)):
         self.__size = size
@@ -44,8 +45,3 @@ class Square:
                     print("")
             for x in range(self.size):
                 print(" " * position[0] + "#" * self.size)
-
-    #  for i in range(self.size):
-    #    for j in range(self.__size):
-    #         print("#", end="")
-    #    print("")
