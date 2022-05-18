@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Class Square"""
+"""Class Rectangle"""
 
 
 class Rectangle:
 
-    """class Square that defines a square by 4"""
+    """"""
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -15,15 +15,23 @@ class Rectangle:
         return(self.width)
 
     @property.setter
-    def __init__(self, size=0, position=(0, 0)):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif position < 0:
+    def width(self, value):
+        if not isinstance(value, int):
+            raise TypeError("height must be an integerr")
+        elif value < 0:
             raise ValueError("size must be >= 0")
         self.siz = value
 
-    def area(self):
-        return(self.__size * self.__size)
+    @property.setter
+    def height(self, value):
+        if not isinstance(value, int):
+            raise TypeError("height must be an integerr")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.siz = value
+
+    def height(self):
+        return(self.height * )
 
     def my_print(self):
         if self.size == 0:
