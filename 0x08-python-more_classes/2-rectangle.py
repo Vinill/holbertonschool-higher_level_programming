@@ -40,5 +40,5 @@ class Rectangle:
     def perimeter(self):
         if self.width == 0 or self.height == 0:
             return 0
-        print("enyte")
-        return((self.height * 2) + (self.width * 2))
+        else:
+            return((self.height * 2) + (self.width * 2))
