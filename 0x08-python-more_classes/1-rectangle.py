@@ -34,5 +34,3 @@ class Rectangle:
             raise ValueError("size must be >= 0")
         self.siz = value
 
-    def height(self):
-        return(self.height * self.width)
