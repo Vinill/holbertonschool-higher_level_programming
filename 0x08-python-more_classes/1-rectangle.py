@@ -5,23 +5,19 @@ Class Rectangle
 
 
 class Rectangle:
-
     """CLass"""
-
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
-    """CLass"""
-
     @property
     def width(self):
+        """CLass"""
         return(self.__width)
-
-    """CLass"""
 
     @width.setter
     def width(self, value):
+        """CLass"""
         if not isinstance(value, int):
             raise TypeError("width must be an integerr")
         if value < 0:
@@ -29,21 +25,17 @@ class Rectangle:
         else:
             self.__width = value
 
-    """CLass"""
-
     @property
     def height(self):
+        """CLass"""
         return(self.__height)
-
-    """CLass"""
 
     @height.setter
     def height(self, value):
+        """CLass"""
         if not isinstance(value, int):
             raise TypeError("height must be an integerr")
         if value < 0:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
-
-    """CLass"""
