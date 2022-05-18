@@ -51,7 +51,7 @@ class Rectangle:
             temp.append("#" * self.width)
             if x < (self.height - 1):
                 temp.append('\n')
-        return "".join(temp)
+        return " ".join(temp)
 
     def __repr__(self):
-        return("Rectangle({:d},{:d})".format(self.__width, self.__height))
+        return(f"Rectangle({self.__width},{self.__height})")
