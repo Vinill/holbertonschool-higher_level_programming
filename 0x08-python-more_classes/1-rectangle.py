@@ -22,6 +22,10 @@ class Rectangle:
             raise ValueError("size must be >= 0")
         self.siz = value
 
+    @property
+    def height(self)
+        return(self.height)
+    
     @property.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -32,11 +36,3 @@ class Rectangle:
 
     def height(self):
         return(self.height * self.width)
-
-    def my_print(self):
-        if self.size == 0:
-            print("")
-        for i in range(self.size):
-            for j in range(self.__size):
-                print("#", end="")
-            print("")
