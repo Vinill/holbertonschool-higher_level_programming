@@ -31,7 +31,7 @@ class Rectangle:
         self.siz = value
 
     def height(self):
-        return(self.height * )
+        return(self.height * self.width)
 
     def my_print(self):
         if self.size == 0:
