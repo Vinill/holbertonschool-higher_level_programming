@@ -9,10 +9,14 @@ class Square:
     def __init__(self, size=0):
         self.__size = size
 
+    """Class Square that defines 
+        a square by 3"""
     @property
     def size(self):
         return(self.__size)
 
+    """Class Square that defines 
+        a square by 3"""
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
