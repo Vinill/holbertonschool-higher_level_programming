@@ -25,7 +25,7 @@ class Rectangle:
     @property
     def height(self):
         return(self.__height)
-    
+
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -42,7 +42,7 @@ class Rectangle:
             return 0
         else:
             return((self.height * 2) + (self.width * 2))
-    
+
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return("")
