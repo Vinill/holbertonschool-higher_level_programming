@@ -23,7 +23,7 @@ class Rectangle:
         self.siz = value
 
     @property
-    def height(self)
+    def height(self):
         return(self.height)
     
     @property.setter
