@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Class Rectangle"""
+"""
+Class Rectangle
+"""
 
 
 class Rectangle:
@@ -15,7 +17,7 @@ class Rectangle:
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("width must be an integerr")
         if value < 0:
             raise ValueError("width must be >= 0")
         else:
@@ -24,11 +26,11 @@ class Rectangle:
     @property
     def height(self):
         return(self.__height)
-
+    
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+            raise TypeError("height must be an integerr")
         if value < 0:
             raise ValueError("height must be >= 0")
         else:
