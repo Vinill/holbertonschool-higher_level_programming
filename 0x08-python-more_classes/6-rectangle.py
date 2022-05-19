@@ -3,7 +3,6 @@
 
 
 class Rectangle:
-
     number_of_instances = 0
     """Class Rectangle that defines a rectangle by"""
 
