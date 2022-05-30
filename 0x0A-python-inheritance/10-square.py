@@ -28,7 +28,7 @@ class Rectangle(BaseGeometry):
 
 
 class Square(Rectangle):
-    """My class Rectangle"""
+    """My class Square"""
     def __init__(self, size):
         super().integer_validator("size", size)
         super().__init__(size, size)
