@@ -5,6 +5,6 @@ an instance of the specified class otherwise False."""
 
 def is_same_class(obj, a_class):
     """My class"""
-    if type(obj) in a_class
+    if type(obj) in a_class:
         return True
     return False
