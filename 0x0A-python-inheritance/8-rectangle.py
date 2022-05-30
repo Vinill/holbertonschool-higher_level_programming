@@ -10,3 +10,10 @@ class BaseGeometry:
             raise TypeError("{:s} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{:s} be greater than 0".format(name))
+
+class Rectangle(BaseGeometry):
+    def __init__(self, width, height):
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
+        self.__width = width
+        self.__heigth = height
