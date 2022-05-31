@@ -10,4 +10,4 @@ import json
 def load_from_json_file(filename):
     """load_from_json_file"""
     with open(filename, mode="r", encoding="UTF-8") as file:
-        json.load(file)
+        return(json.load(file))
