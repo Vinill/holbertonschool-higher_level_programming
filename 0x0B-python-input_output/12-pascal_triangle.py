@@ -6,7 +6,6 @@ class Student that defines a student by
 
 def pascal_triangle(n):
     """Def class Student"""
-
     if n <= 0:
         return []
 
