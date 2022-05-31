@@ -1,38 +1,25 @@
 #!/usr/bin/python3
-
-class BaseGeometry:
-    """My class BaseGeometry"""
-    def area(self):
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        if type(value) is not int:
-            raise TypeError("{:s} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{:s} be greater than 0".format(name))
+''' Module that creates a rectangle and a square class '''
 
 
-class Rectangle(BaseGeometry):
-    """My class Rectangle"""
-    def __init__(self, width, height):
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
-        self.__width = width
-        self.__height = height
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    def area(self):
-        return(self.__width * self.__height)
 
-    def __str__(self):
-        return("[Rectangle] {}/{}".format(self.__width, self.__height))
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
     """My class Square"""
+
     def __init__(self, size):
         super().integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
     def area(self):
+        ''' Overrides the area method, and returns the area '''
         return(self.__size * self.__size)
+
+    def __str__(self):
+        ''' Prints the dimensions of the rectangle/square '''
+        return super().__str__()
