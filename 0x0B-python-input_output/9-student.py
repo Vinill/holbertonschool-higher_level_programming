@@ -13,6 +13,9 @@ class Student():
 
     def to_json(self, attrs=None):
         if attrs is None:
-            dict1 = {}
-            
-            return(vars(self))
+            return self.__dict__
+        dict1 = {}
+        for key, value in self.__dict__.items():
+            if key in attrs:
+                dict1[key] = value
+        return dict1
