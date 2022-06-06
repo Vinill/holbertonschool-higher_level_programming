@@ -3,6 +3,7 @@
     The goal of it is to manage id attribute in all your future classes
     and to avoid duplicating the same code (by extension, same bugs) """
 
+import json
 
 class Base:
     """ class Base """
@@ -15,3 +16,10 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+    
+    def to_json_string(list_dictionaries):
+        """Def to_json_string"""
+        if list_dictionaries == None or len(list_dictionaries) == "":
+            return ([])
+        else:
+            return json.dumps(list_dictionaries)
