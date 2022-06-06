@@ -14,7 +14,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
         super().__init__(id)
-        
+
     @property
     def height(self):
         """ property height """
@@ -97,19 +97,3 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-
-        """Definition Update"""
-        """if args is not None and len(args) != 0:
-            i = 0
-            for x in args:
-                if i == 0:
-                    self.id = x
-                if i == 1:
-                    self.__width = x
-                if i == 2:
-                    self.__height = x
-                if i == 3:
-                    self.__x = x
-                if i == 4:
-                    self.__y = x
-                i += 1"""
