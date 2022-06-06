@@ -25,7 +25,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Definition Update"""
-        list_args = ["id", "width", "height", "x", "y"]
+        list_args = ["id", "size", "x", "y"]
         if args:
             count = 0
             for i in args:
