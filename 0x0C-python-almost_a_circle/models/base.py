@@ -36,14 +36,3 @@ class Base:
             with open(cls.__name__+".json", "w") as f:
                 f.write(cls.to_json_string([obj.to_dictionary()
                                             for obj in list_objs]))
-
-"""    @classmethod
-    def save_to_file(cls, list_objs):
-        new_list = []
-        if list_objs is not None:
-            for i in list_objs:
-                new_list.append(i.to_dictionary())
-        else:
-           with open("{}.json".format(cls,__name__), "w") as f:
-           with open(cls.__name__+".json", "w") as f:
-                f.write(cls,to_json_string(new_list))"""
