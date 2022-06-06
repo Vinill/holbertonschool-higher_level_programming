@@ -36,3 +36,11 @@ class Base:
             with open(cls.__name__+".json", "w") as f:
                 f.write(cls.to_json_string([obj.to_dictionary()
                                             for obj in list_objs]))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Def to_json_string"""
+        if json_string is None or json_string == "":
+            return ([])
+        else:
+            return json.loads(json_string)
