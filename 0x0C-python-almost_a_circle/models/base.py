@@ -47,3 +47,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """Def create"""
+        if cls is "Rectangle":
+            dummy = 
+        if cls is "Square":
