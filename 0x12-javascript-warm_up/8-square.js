@@ -6,5 +6,5 @@ if (parseInt(myArray)) {
     console.log(str.repeat(myArray));
   }
 } else {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 }
