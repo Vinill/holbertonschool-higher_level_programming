@@ -15,9 +15,7 @@ if __name__ == "__main__":
     ORDER BY cities.id ASC", [argv[4]])
     new = []
 
-    for state in cur.fetchall():
-        new += state
-    print(', '.join(new))
-    cur.close()
+    for row in cur.fetchall():
+        print(row[0], end=" ," if row != rows[-1] else "\n")
 
     db.close()
