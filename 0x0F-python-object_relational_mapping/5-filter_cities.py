@@ -19,12 +19,7 @@ if __name__ == "__main__":
     JOIN cities ON cities.state_id = states.id WHERE states.name = %s \
     ORDER BY cities.id ASC", [argv[4]])
     new = []
-
-    for row in cur.fetchall():
-        print(row[0], end=" ," if row != rows[-1] else "\n")
-
-    new = []
-    for x in query:
+    for x in cur:
         output.append(str(x)[2:-3])
     print(', '.join(new))
     cur.close()
