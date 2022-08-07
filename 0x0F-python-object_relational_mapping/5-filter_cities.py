@@ -1,26 +1,25 @@
 #!/usr/bin/python3
-"""
-Script that lists all cities from the database hbtn_0e_4_usa
-"""
+"""Task: 0. Get all states"""
 
-from sys import argv
 import MySQLdb
+from sys import argv
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(
-        host='localhost',
-        user=argv[1],
-        password=argv[2],
-        database=argv[3],
-        port=3306)
-    cur = db.cursor()
+if (__name__ == "__main__"):
 
-    cur.execute("SELECT cities.name FROM states, \
-    JOIN cities ON cities.state_id = states.id WHERE states.name = %s \
-    ORDER BY cities.id ASC", [argv[4]])
-    new = []
-    for x in cur:
+    con = MySQLdb.Connect(host="localhost", user=argv[1],
+                          passwd=argv[2], db=argv[3], port=3306)
+
+    cur = con.cursor()
+
+    qryOne = "SELECT cities.name FROM cities INNER JOIN "
+    qryTwo = "states ON cities.state_id = states.id "
+    qryThree = "WHERE states.name = %s ORDER BY cities.id"
+    cur.execute(qryOne + qryTwo + qryThree, [argv[4]])
+    query = cur.fetchall()
+
+    output = []
+    for x in query:
         output.append(str(x)[2:-3])
-    print(', '.join(new))
+    print(', '.join(output))
     cur.close()
     con.close()
