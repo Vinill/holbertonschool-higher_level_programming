@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Task: 0. Get all states"""
+"""script that lists all cities from the database hbtn_0e_4_usa"""
 
 import MySQLdb
 from sys import argv
@@ -7,15 +7,22 @@ from sys import argv
 if (__name__ == "__main__"):
     username = sys.argv[1]
     password = sys.argv[2]
-    db = sys.argv[3]
+    database = sys.argv[3]
 
-    cur = con.cursor()
-    qryOne = "SELECT cities.id, cities.name, states.name FROM cities"
-    qryTwo = " INNER JOIN states ON cities.state_id = states.id"
-    cur.execute(qryOne + qryTwo)
-    query = cur.fetchall()
+    db = MySQLdb.connect(
+        host="localhost",
+        user=mysql_username,
+        passwd=mysql_password,
+        db=mysql_db,
+        port=3306
+    )
 
-    for x in query:
-        print(x)
-    cur.close()
-    con.close()
+    c = db.cursor()
+    c.execute("""SELECT cities.id, cities.name, states.name FROM cities
+              JOIN states ON cities.state_id = states.id
+              ORDER BY cities.id ASC""")
+    rows = c.fetchall()
+    for row in rows:
+        print(row)
+
+    db.close()
