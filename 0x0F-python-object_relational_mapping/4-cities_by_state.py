@@ -1,16 +1,20 @@
 #!/usr/bin/python3
-"""
-Script that lists all cities from the database hbtn_0e_4_usa
-"""
-
-import sys
+"""script that lists all states from the database hbtn_0e_0_usa"""
 import MySQLdb
+from sys import argv
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    cur = db.cursor()
-    cur.execute("SELECT cities.id, states.name, cities.name FROM states, \
-    cities WHERE cities.state_id = states.id ORDER BY cities.id ASC")
-    [print(state) for state in cur.fetchall()]
+if __name__ == '__main__':
+    javi_db = MySQLdb.connect(
+        host='localhost',
+        user=argv[1],
+        password=argv[2],
+        database=argv[3],
+        port=3306)
+    cur = javi_db.cursor()
+
+    cur.execute("SELECT cities.id, cities.name, states.name FROM states \
+    JOIN cities ON cities.state_id = states.id ORDER by cities.id")
+    for row in cur.fetchall():
+        print(row)
+    javi_db.close()
     cur.close()
-    db.close()
