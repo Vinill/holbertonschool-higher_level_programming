@@ -2,23 +2,24 @@
 """script that takes in an argument and displays all values in the states
  table of hbtn_0e_0_usa where name matches the argument"""
 
-from unicodedata import name
+
 import MySQLdb
-import sys
+from sys import argv
 
-if __name__ == "__main__":
+if (__name__ == "__main__"):
 
-    na = sys.argv[4]
+    con = MySQLdb.Connect(host="localhost", user=argv[1],
+                          passwd=argv[2], db=argv[3], port=3306)
 
-    db = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
-    cur = db.cursor()
+    input = argv[4]
+    cur = con.cursor()
+    cur.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC"
+        .format(input))
 
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'".format(na))
-    states = cur.fetchall()
+    query = cur.fetchall()
 
-    for state in states:
-        print(state)
-
+    for x in query:
+        print(x)
     cur.close()
-    db.close()
+    con.close()
