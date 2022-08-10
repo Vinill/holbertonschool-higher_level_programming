@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""script that lists all states from the database hbtn_0e_0_usa"""
+""" script that prints the State object with the name passed as
+    argument from the database hbtn_0e_6_usa """
 
 import MySQLdb
 import sys
@@ -32,7 +33,9 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        result = session.query(State).all()
+        result = session.query(State).filter(State.name.contains('a'))
 
-        for r in result:
-            print(r.id, ': ', r.name, sep="")
+        for index in result:
+            session.delete(index)
+
+        session.commit()

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""script that lists all states from the database hbtn_0e_0_usa"""
+""" script that prints the State object with the name passed as
+    argument from the database hbtn_0e_6_usa """
 
 import MySQLdb
 import sys
@@ -34,5 +35,10 @@ if __name__ == "__main__":
 
         result = session.query(State).all()
 
-        for r in result:
-            print(r.id, ': ', r.name, sep="")
+        addState = State(name='Louisiana')
+
+        session.add(addState)
+        session.commit()
+
+        print(addState.id)
+        

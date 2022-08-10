@@ -1,23 +1,41 @@
 #!/usr/bin/python3
-# Prints the first State object from the database hbtn_0e_6_usa.
-# Usage: ./8-model_state_fetch_first.py <mysql username> /
-#                                       <mysql password> /
-#                                       <database name>
+"""script that lists all State objects that contain the letter a
+   from the database hbtn_0e_6_usa """
+
+import MySQLdb
 import sys
-from sqlalchemy import create_engine
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import (create_engine)
+from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+
+Base = declarative_base()
 
 if __name__ == "__main__":
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
-    Session = sessionmaker(bind=engine)
-    session = Session()
 
-    state = session.query(State).order_by(State.id).first()
-    if state is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
-    
+    Base.metadata.create_all(engine)
+
+    class State(Base):
+        """Instatiation of class"""
+
+        __tablename__ = 'states'
+
+        id = Column(Integer, primary_key=True, unique=True,
+                    autoincrement=True, nullable=False)
+
+        name = Column(String(128), nullable=False)
+
+        Session = sessionmaker(bind=engine)
+        session = Session()
+
+        result = session.query(State).first()
+
+        if (result is not None):
+            print(result.id, ': ', result.name, sep="")
+        else:
+            print("Nothing")
