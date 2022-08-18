@@ -1,3 +1,3 @@
 #!/bin/bash
-# Task 5. cURL POST parameters
+# Bash script that takes in a URL, sends a POST request to the passed URL
 curl -s -F "email=test@gmail.com" -F "subject=I will always be here for PLD" $1
